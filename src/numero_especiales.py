@@ -7,12 +7,12 @@
 
 def leeParImpar():
     parImpar = input("¿Desea calcular la suma de pares o impares? (par/impar): ")
-    if parImpar != "par" or parImpar != "impar":
+    if parImpar != "par" and parImpar != "impar":
         raise ValueError("Input invalido")
     return parImpar  
 
-def leeNumero():
-    numero = input("Introduce un nuero: ")
+def leeNumero(mensaje):
+    numero = input(mensaje)
     if not str.isdigit(numero):
         raise ValueError("No es un numero")
     return int(numero)
@@ -53,9 +53,12 @@ if __name__ == '__main__':
     
     par_impar = leeParImpar()
     numero1 = leeNumero("Ingrese el número inicial: ")
-    numero2 = leeNumero()
+    numero2 = leeNumero("Ingrese el número final: ")
     compruebaMultiplo10(numero1)
     compruebaMultiplo10(numero2)
     
-    print(sumaNumeros("par", 10, 20))
+    suma = sumaNumeros(par_impar, numero1, numero2)
+    
+    print(mensaje(par_impar, suma))
+    
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
